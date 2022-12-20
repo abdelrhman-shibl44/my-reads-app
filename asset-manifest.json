@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/my-reads-app/static/css/main.c437ba22.css",
+    "main.js": "/my-reads-app/static/js/main.41f50b40.js",
+    "static/js/787.cdd1c8ad.chunk.js": "/my-reads-app/static/js/787.cdd1c8ad.chunk.js",
+    "index.html": "/my-reads-app/index.html",
+    "static/media/arrow-back.svg": "/my-reads-app/static/media/arrow-back.cd079cab42defead9875.svg",
+    "main.c437ba22.css.map": "/my-reads-app/static/css/main.c437ba22.css.map",
+    "main.41f50b40.js.map": "/my-reads-app/static/js/main.41f50b40.js.map",
+    "787.cdd1c8ad.chunk.js.map": "/my-reads-app/static/js/787.cdd1c8ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c437ba22.css",
+    "static/js/main.41f50b40.js"
+  ]
+}
