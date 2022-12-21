@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
-import React, { useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Link } from "react-router-dom"
 import { SearchResults } from '../components/SearchResults'
-import { getAll } from "../utils/BooksAPI"
-import { search } from "../utils/BooksAPI"
 import debounce from 'lodash.debounce';
 
-export const Search = ({ updateShelf, setSearchBooks, searchBooks, mainBooks, setSetState }) => {
+export const Search = ({ updateShelf, mainBooks, setMainBooks, BooksAPI }) => {
+    const [searchBooks, setSearchBooks] = useState([]);
     const [query, setQuery] = React.useState('');
     // function to take value in search and set it to query
     const handleSearch = (e) => {
@@ -24,13 +23,13 @@ export const Search = ({ updateShelf, setSearchBooks, searchBooks, mainBooks, se
     useEffect(() => {
         // run immediately invoked function
         (async () => {
-            const res = await getAll()
-            setSetState(res)
+            const res = await BooksAPI.getAll()
+            setMainBooks(res)
 
         })();
         // to prevent memory leaks
         return () => {
-            setSetState([])
+            setMainBooks([])
         };
     }, []);
 
@@ -38,20 +37,20 @@ export const Search = ({ updateShelf, setSearchBooks, searchBooks, mainBooks, se
     useEffect(() => {
         // run immediately invoked function
         (async () => {
-            const res = await getAll()
-            setSetState(res)
+            const res = await BooksAPI.getAll()
+            setMainBooks(res)
 
         })();
         // to prevent memory leaks
         return () => {
-            setSetState([])
+            setMainBooks([])
         };
     }, [query]);
 
     // function takse user'sValue in input search and set it to searchBook State
     React.useEffect(() => {
         (async () => {
-            const res = query && query.length && await search(query)
+            const res = query && query.length && await BooksAPI.search(query)
             res && res.length &&
                 setSearchBooks(res)
         })();
@@ -87,8 +86,6 @@ export const Search = ({ updateShelf, setSearchBooks, searchBooks, mainBooks, se
 
 Search.propTypes = {
     mainBooks: PropTypes.array.isRequired,
-    setSearchBooks: PropTypes.func.isRequired,
-    searchBooks: PropTypes.array.isRequired,
-    setSetState: PropTypes.func.isRequired,
+    setMainBooks: PropTypes.func.isRequired,
     updateShelf: PropTypes.func.isRequired,
 }

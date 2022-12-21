@@ -3,18 +3,17 @@ import { BookShelf } from '../components/BookShelf'
 import { Header } from '../components/Header'
 import { Link } from "react-router-dom"
 import { useEffect } from 'react'
-import * as BooksAPI from "../utils/BooksAPI"
-export const Main = ({ mainBooks, updateShelf, setSetState }) => {
+export const Main = ({ mainBooks, updateShelf, setMainBooks, BooksAPI }) => {
     useEffect(() => {
         // run immediately invoked function
         (async () => {
             const res = await BooksAPI.getAll()
-            setSetState(res)
+            setMainBooks(res)
 
         })();
         // to prevent memory leaks
         return () => {
-            setSetState([])
+            setMainBooks([])
         };
     }, []);
 
@@ -54,5 +53,5 @@ export const Main = ({ mainBooks, updateShelf, setSetState }) => {
 Main.propTypes = {
     mainBooks: PropTypes.array.isRequired,
     updateShelf: PropTypes.func.isRequired,
-    setSetState: PropTypes.func.isRequired
+    setMainBooks: PropTypes.func.isRequired
 }
