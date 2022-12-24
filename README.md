@@ -9,14 +9,14 @@ to read and the second Page is (Main Page ) this page have three shelves:
 1. Currently Reading => containes books you are reading these days.
 2. Want to Read => contains books you want to read.
 3. Read => contains books you read.
-   **Note: you can use the search page to add book to one of three pages you have full of control
+   **Note: you can use the search page to add book to one of three shelves you have full of control
    add,remove from two pages.**
    its a great app right?
 
 ### Technologies
 
-- i used Html to structure the page
-- used Css to style the page
+- used JSX to structure the page
+- utilized Css to style the page
 - used react (library) to make page interactive (single page)
 
 #### Setup
